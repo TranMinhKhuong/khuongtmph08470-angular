@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="col-8 offset-2 border">
+            <div class="row">
+                <div class="col-6 offset-3">
+                    <div class="form-group">
+                        <label for="">Name Hospital</label>
+                        <input type="text" 
+                            [value]="customerHospital.nameHospital"
+                            (keyup)="customerHospital.nameHospital = $event.target.value"
+                            class="form-control">
+                    </div>
+                    <div class="row">
+                        <div class="col-6 offset-3">
+                            <img [src]="customerHospital.imgHospital" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Image Hospital</label>
+                        <input type="text"
+                            [value]="customerHospital.imgHospital"
+                            (keyup)="customerHospital.imgHospital = $event.target.value"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Name Manager</label>
+                        <input type="text"
+                            [value]="customerHospital.nameManager"
+                            (keyup)="customerHospital.nameManager = $event.target.value"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Address</label>
+                        <input type="text"
+                            [value]="customerHospital.address"
+                            (keyup)="customerHospital.address = $event.target.value"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Number of Infections</label>
+                        <input type="text"
+                            [value]="customerHospital.numberOfInfections"
+                            (keyup)="customerHospital.numberOfInfections = $event.target.value"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Number Of Cases</label>
+                        <input type="text"
+                            [value]="customerHospital.numberOfCases"
+                            (keyup)="customerHospital.numberOfCases = $event.target.value"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Number Of Deaths</label>
+                        <input type="text"
+                            [value]="customerHospital.numberOfDeaths"
+                            (keyup)="customerHospital.numberOfDeaths = $event.target.value"
+                            class="form-control">
+                    </div>
+                    <div class="text-center">
+                        <button 
+                        (click)="saveHospital()"
+                        class="btn btn-sm btn-success">Save</button>
+                        &nbsp;
+                        <button (click)="cancel()" class="btn btn-sm btn-danger">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- {{ }} Hiển thị giá trị của 1 biến/1 thuộc tính của đối tượng -->
+            <!-- [] quy định về giá trị của các thuộc tính của các thẻ khi giá trị thuộc tính 
+                đc gán bằng 1 biến/1 gtri thuộc tính -->
+            <!-- <img [src]="" /> | <input [value]="" />-->
+            <!-- () quy định về sự kiện, khi sự kiện xảy ra thì 1 hàm trong .ts sẽ được thực thi -->
+            <!-- (click) (blur) (keydown) -->
+            <!-- Thực hiện vòng lặp (sử dụng cho kiểu dữ liệu dạng mảng) => *ngFor -->
+            <!-- Thực hiện câu lệnh điều kiện => *ngIf -->
+            <h2>{{title}}</h2>
+            <ol>
+                <li *ngFor="let hospital of hospitalList">
+                    <img [src]="hospital.imgHospital" width="70"> &nbsp;
+                    {{hospital.nameHospital}} - 
+                    &nbsp;
+                    <button (click)="editHospital(hospital)" class="btn btn-sm btn-info">Edit</button>
+                    &nbsp;
+                    <button (click)="removeHospital(hospital)" class="btn btn-sm btn-danger">Delete</button>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>
